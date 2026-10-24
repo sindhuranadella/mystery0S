@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MysteryOS — The Intelligent Mystery Investigation Platform</title>
+    <meta name="description" content="Interactive detective investigation platform where players explore crime scenes, interrogate AI suspects, connect clues on an evidence board, reconstruct timelines, and solve complex mysteries." />
+    <meta property="og:title" content="MysteryOS — The Intelligent Mystery Investigation Platform" />
+    <meta property="og:description" content="Interactive detective investigation platform where players explore crime scenes, interrogate AI suspects, connect clues on an evidence board, reconstruct timelines, and solve complex mysteries." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <script>
+      // Runtime Environment: HMR is disabled in preview iframe; ignore WebSocket errors.
+      window.addEventListener('unhandledrejection', function(event) {
+        if (event && event.reason && (
+          (typeof event.reason === 'string' && event.reason.includes('WebSocket')) ||
+          (event.reason.message && event.reason.message.includes('WebSocket')) ||
+          (event.reason.stack && (event.reason.stack.includes('@vite/client') || event.reason.stack.includes('WebSocket')))
+        )) {
+          event.stopImmediatePropagation();
+          event.preventDefault();
+        }
+      });
+      window.addEventListener('error', function(event) {
+        if (event && (
+          (event.message && event.message.includes('WebSocket')) ||
+          (event.filename && event.filename.includes('@vite/client'))
+        )) {
+          event.stopImmediatePropagation();
+          event.preventDefault();
+        }
+      }, true);
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

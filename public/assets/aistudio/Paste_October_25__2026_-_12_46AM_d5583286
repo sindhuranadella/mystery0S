@@ -1,0 +1,918 @@
+# MASTER PROJECT PROMPT: MysteryOS — AI-Powered Mystery Investigation Platform
+
+## 1. Project Overview
+
+Act as a senior full-stack software engineer, AI application architect, database designer, UI/UX designer, and software testing engineer.
+
+Build a complete, professional, advanced-level web application named **MysteryOS — The Intelligent Mystery Investigation Platform**.
+
+MysteryOS is an interactive detective investigation platform where users solve fictional crimes by exploring crime scenes, collecting evidence, interviewing suspects using natural language, identifying contradictions, reconstructing timelines, connecting clues, developing theories, and submitting evidence-based accusations.
+
+This must be a fully functional software project, not just a static website, UI prototype, chatbot, or basic CRUD application.
+
+Implement all features end to end, including the frontend, backend, database, investigation engine, AI integration, authentication, scoring, testing, and deployment documentation.
+
+## 2. Technology Stack
+
+Use the following technology stack:
+
+- Frontend: HTML5, CSS3, JavaScript (ES6+).
+- Backend: Python Flask.
+- Database: PostgreSQL using SQLAlchemy and Flask-Migrate.
+- Authentication: Secure session-based authentication, password hashing, and appropriate authorization.
+- AI integration: An LLM API supporting contextual conversations, with the provider and model configurable through environment variables.
+- API communication: RESTful endpoints using JSON.
+- Frontend visualization: A suitable JavaScript library for interactive evidence graphs and timelines.
+- Testing: Pytest for backend logic, API endpoints, security checks, and investigation scenarios.
+- Deployment: Provide configuration suitable for a Python-compatible hosting platform and a managed PostgreSQL database.
+
+Use a modular architecture. Do not put the entire application in a single Python file.
+
+The application must run locally on macOS, Windows, and Linux with clear setup instructions.
+
+## 3. UI/UX Design Requirements
+
+Create a premium, cinematic detective-investigation interface inspired by professional investigation dashboards and mystery games.
+
+### Visual identity
+
+- Product name: MysteryOS.
+- Tagline: “Every clue has a story. Every story hides the truth.”
+- Design style: Modern, immersive, cinematic, sophisticated, and professional.
+- Primary colors: Midnight navy, charcoal, black, and royal blue.
+- Accent colors: Restrained red for warnings, amber for uncertain evidence, and green for verified findings.
+- Typography: Clear, modern, readable fonts.
+- Use consistent spacing, icons, transitions, cards, modals, tooltips, and loading indicators.
+- Use subtle animations without compromising accessibility or performance.
+- Avoid excessive neon effects, cluttered screens, and generic template-like designs.
+
+### Responsive design
+
+The application must work on desktop, laptop, tablet, and mobile devices.
+
+Support keyboard navigation, visible focus indicators, readable contrast, accessible form labels, and reduced-motion preferences.
+
+Create reusable UI components and consistent design tokens.
+
+## 4. User Authentication and Profile
+
+Implement:
+
+- Registration.
+- Login and logout.
+- Password hashing.
+- Input validation.
+- Secure session management.
+- Protected application routes.
+- Profile editing.
+- Password change functionality.
+- Account-specific saved investigations.
+- User statistics and detective rank.
+- Completed-case history.
+- Achievements and progress tracking.
+
+Never store plaintext passwords or expose secret keys in frontend code.
+
+Provide useful error messages for invalid credentials, duplicate accounts, expired sessions, and other expected failures.
+
+## 5. Landing Page
+
+Create a polished landing page containing:
+
+- MysteryOS branding and navigation.
+- A cinematic hero section.
+- A clear explanation of how the platform works.
+- Featured mystery cases.
+- A “Start Investigating” call to action.
+- Feature highlights.
+- Difficulty-level previews.
+- An explanation of AI-powered suspect interviews.
+- A preview of the evidence board.
+- Testimonials or clearly labeled illustrative placeholder content.
+- Frequently asked questions.
+- Footer with documentation, privacy information, terms, and contact information.
+
+All navigation links and buttons must work.
+
+Do not invent real user testimonials, reviews, or performance statistics.
+
+## 6. Investigator Dashboard
+
+After login, show a personalized dashboard containing:
+
+- Welcome message.
+- Current active investigation.
+- Available cases.
+- Recently played cases.
+- Completed cases.
+- Total evidence discovered.
+- Investigation accuracy.
+- Average case score.
+- Detective rank and experience points.
+- Achievement badges.
+- Progress indicators.
+- Recommended cases based on difficulty and progress.
+- Continue Investigation button.
+- Recent activity.
+
+All statistics must come from actual database records, not hardcoded sample numbers.
+
+Provide loading, empty, and error states.
+
+## 7. Case Library
+
+Create a searchable, filterable mystery-case library.
+
+Every case must include:
+
+- Case title.
+- Cover image or illustration.
+- Brief description.
+- Crime category.
+- Location and setting.
+- Difficulty level.
+- Estimated completion time.
+- Number of suspects.
+- Available investigation features.
+- Case status.
+- Start or resume button.
+
+Support filters for:
+
+- Difficulty.
+- Crime type.
+- Setting.
+- Estimated duration.
+- New, active, and completed cases.
+
+Include sorting, search, pagination where necessary, and a polished case-detail page.
+
+Create at least three original, fictional sample cases with distinct stories, suspects, evidence, motives, and verified solutions. The first case must be fully playable from start to finish. Other cases must also be playable if presented as available.
+
+Do not label incomplete sample cases as playable.
+
+## 8. Investigation Engine
+
+Build a functional investigation system.
+
+Each case must have a predefined, internally consistent set of facts, suspects, locations, statements, clues, possible actions, timeline events, and a verified solution.
+
+The investigation engine must control the official truth independently of the AI conversation model.
+
+Store sensitive solution data on the backend. Do not send the culprit, hidden facts, or undiscovered evidence to the browser.
+
+### Crime-scene exploration
+
+Create an interactive investigation interface with:
+
+- A location list or interactive floor plan.
+- Individual rooms and scene areas.
+- Clickable objects.
+- Object descriptions.
+- Investigation actions.
+- Evidence discovery.
+- Locked interactions with explanatory conditions.
+- Discovery animations.
+- Evidence detail panels.
+- A list of explored locations.
+- Progress indicators.
+
+Players should be able to explore rooms, examine objects, read documents, inspect suspicious items, and discover evidence.
+
+A room can contain multiple objects, and certain clues may require prerequisites.
+
+If full 3D exploration is outside the selected stack, implement a polished 2D or illustrated scene interface with interactive hotspots. Do not pretend a static image is a fully interactive environment.
+
+### Evidence discovery
+
+Each clue must include:
+
+- Unique identifier.
+- Case identifier.
+- Name.
+- Description.
+- Evidence type.
+- Discovery location.
+- Discovery requirements.
+- Related characters.
+- Related statements.
+- Related timeline events.
+- Reliability or evidential significance.
+- Visibility and discovery status.
+
+Possible evidence types include:
+
+- Physical evidence.
+- Documents.
+- Witness statements.
+- Digital records.
+- Timeline evidence.
+- Environmental observations.
+- Financial or motive-related evidence.
+
+Distinguish verified facts from assumptions, rumors, and unverified claims.
+
+Allow evidence to unlock further discoveries through explicit rules.
+
+Record discoveries per player and investigation session.
+
+## 9. Suspect Management and AI Interviews
+
+Each case must contain several distinct suspects.
+
+For each suspect, store:
+
+- Name and profile image.
+- Age and fictional background where appropriate.
+- Relationship to the victim or case.
+- Personality.
+- Possible motive.
+- Known facts.
+- Initial statement.
+- Alibi.
+- Relationships with other characters.
+- Facts the suspect knows.
+- Facts the suspect does not know.
+- Statements they are authorized to disclose.
+- Relevant evidence connections.
+
+### Natural-language interrogation
+
+Allow players to type their own questions in a conversational interview interface.
+
+Examples:
+
+- “Where were you at 10 PM?”
+- “Why did you change your statement?”
+- “Who had access to the study?”
+- “Can you explain this piece of evidence?”
+- “Your timeline conflicts with the witness statement. Why?”
+
+AI responses should be contextually relevant, consistent with the character, and appropriate to the question.
+
+Implement:
+
+- Conversation history.
+- Character-specific instructions.
+- Case-specific context.
+- Evidence-aware responses.
+- Question loading indicators.
+- Graceful API error handling.
+- Conversation limits and rate limiting.
+- Safe fallback responses when the AI provider is unavailable.
+- Clear distinction between facts, claims, and speculation.
+
+### Critical truth-preservation rules
+
+The AI must never independently decide the culprit or change the case solution.
+
+It must not invent authoritative evidence, alter established timestamps, create unsupported alibis, reveal hidden solution data, or claim that a clue exists when the player has not discovered it.
+
+Use server-controlled context, restricted fact retrieval, structured response handling where practical, and validation before displaying answers.
+
+Treat player input as untrusted. Attempts to override system instructions or reveal hidden case data must not bypass the investigation rules.
+
+When the AI cannot answer reliably from authorized case information, it should acknowledge uncertainty or provide a character-appropriate response without inventing facts.
+
+## 10. Evidence Notebook
+
+Create a personal notebook for every investigation.
+
+Features:
+
+- Automatically save discovered clues.
+- Add personal notes.
+- Edit and delete personal notes.
+- Mark evidence as important.
+- Categorize evidence.
+- Search notes and clues.
+- Filter by location, character, evidence type, and discovery status.
+- Record when evidence was discovered.
+- Track evidence examined but not fully understood.
+- Link notes to relevant clues and suspects.
+- Preserve progress after logout or refresh.
+
+Clearly distinguish player-written notes from verified case evidence.
+
+## 11. Interactive Evidence Board
+
+Implement a visual evidence board where players can:
+
+- View suspects, clues, statements, locations, and timeline events as nodes.
+- Connect two or more pieces of evidence.
+- Add relationship labels.
+- Remove incorrect connections.
+- Add private reasoning notes.
+- Highlight important evidence.
+- Identify possible contradictions.
+- Save and restore the board.
+- Zoom, pan, and rearrange nodes.
+- Filter the board by evidence category.
+- View details by selecting a node.
+
+Connections must be stored in the database and belong to the current player and case session.
+
+Provide a clear legend for different relationship types, such as supports, contradicts, belongs to, and places at a location.
+
+Do not automatically mark every player-created relationship as correct.
+
+The system should distinguish between the player's theory and relationships supported by verified case facts.
+
+## 12. Timeline Reconstruction
+
+Create an interactive event timeline.
+
+Features:
+
+- Display known events chronologically.
+- Let players propose an event order.
+- Support uncertain time ranges.
+- Link events to clues and suspect statements.
+- Highlight conflicting timestamps.
+- Identify impossible or unsupported sequences.
+- Allow players to revise their timeline.
+- Save timeline progress.
+- Reveal the verified timeline only after appropriate case completion or authorized hint usage.
+
+Use explicit backend rules for checking time conflicts.
+
+Do not flag two events as contradictory unless the established facts actually make them incompatible.
+
+## 13. Contradiction Detection Engine
+
+Implement a deterministic contradiction-detection module.
+
+It should compare:
+
+- Suspect statements.
+- Known timestamps.
+- Location claims.
+- Verified physical evidence.
+- Alibis.
+- Event ordering.
+- Relationships between discovered clues.
+
+Examples:
+
+- A suspect claims to be in two locations at the same time.
+- A statement conflicts with a verified timestamp.
+- A witness describes an object that was not present at the stated time.
+- A suspect's account conflicts with independently verified evidence.
+
+For every detected contradiction, provide:
+
+- The relevant statements or facts.
+- Why they appear inconsistent.
+- The evidence supporting the alert.
+- Whether the contradiction is confirmed or merely possible.
+- Suggested investigative follow-up.
+
+Avoid unsupported accusations. A contradiction should be an investigative lead, not automatic proof of guilt.
+
+The AI may explain a contradiction, but the backend must determine whether the underlying facts satisfy the contradiction rule.
+
+## 14. Hypothesis Builder
+
+Allow the player to construct a complete theory before submitting an accusation.
+
+Require the player to specify:
+
+- Suspected culprit.
+- Proposed motive.
+- Proposed method.
+- Approximate sequence of events.
+- Supporting evidence.
+- Contradictory evidence.
+- Unresolved questions.
+- Confidence level.
+- Explanation in the player's own words.
+
+Provide a theory workspace with editable sections and evidence links.
+
+The system should identify missing support, highlight unsupported assumptions, and distinguish evidence-backed conclusions from speculation.
+
+Do not reveal the official solution while the case is still active.
+
+## 15. Progressive Hint System
+
+Create a tiered hint system.
+
+- Hint 1: A broad direction for further investigation.
+- Hint 2: A relevant location, character, or evidence category.
+- Hint 3: A more specific clue connection without immediately revealing the full answer.
+
+Hints should be configured per case and generated or selected using verified case facts.
+
+Track hints used and apply any scoring penalties transparently.
+
+Never reveal the culprit directly through a hint unless the case has been completed or the player explicitly requests a solution reveal.
+
+## 16. Final Accusation and Scoring
+
+Create a formal accusation submission screen.
+
+Require:
+
+- Suspect selection.
+- Motive selection or explanation.
+- Method selection or explanation.
+- Supporting evidence selection.
+- Timeline explanation.
+- Written reasoning.
+
+Validate the submission on the backend.
+
+Use a configurable 100-point scoring model:
+
+- Correct culprit: 30 points.
+- Correct motive: 15 points.
+- Correct method: 15 points.
+- Relevant supporting evidence: 25 points.
+- Consistent timeline: 15 points.
+
+Apply documented rules for partial credit, missing evidence, contradictions, and hints.
+
+A lucky guess should not receive the same score as a well-supported deduction.
+
+Prevent duplicate submissions from accidentally awarding duplicate rewards.
+
+Do not rely exclusively on an LLM to grade accusations. Use deterministic scoring rules for objective elements. If AI is used to evaluate written reasoning, treat it as a supplementary assessment and validate its output against the case's verified facts.
+
+## 17. Case Resolution and Final Report
+
+After submission, show a comprehensive case report containing:
+
+- Final score.
+- Accuracy percentage.
+- Correct culprit.
+- Actual motive.
+- Actual method.
+- Verified event timeline.
+- Important clues.
+- Missed evidence.
+- Relevant contradictions.
+- Incorrect assumptions.
+- Explanation of how the case was solved.
+- Hint usage.
+- Time spent.
+- Evidence collection percentage.
+- Suggested improvement areas.
+- Replay button.
+- Next case recommendation.
+
+Reveal the complete verified solution only when the player is permitted to see it.
+
+Make the report educational and explain why the evidence supports the final conclusion.
+
+Save completed results in the player's profile.
+
+## 18. Detective Rank and Achievements
+
+Create a progression system with ranks such as:
+
+- Trainee.
+- Investigator.
+- Detective.
+- Senior Detective.
+- Master Detective.
+
+Add achievements such as:
+
+- First Case Completed.
+- Evidence Collector.
+- Timeline Expert.
+- Contradiction Finder.
+- No-Hints Investigator.
+- Perfect Deduction.
+
+Award experience points based on completed investigations and verified achievements.
+
+Prevent duplicate rewards and ensure that achievements are awarded using backend rules.
+
+All progress must be persistent and based on real player activity.
+
+## 19. Mystery Creator Studio
+
+Implement an advanced case-creation interface for authorized users.
+
+Allow creators to define:
+
+- Case title and description.
+- Setting and locations.
+- Suspects and relationships.
+- Victim and incident details.
+- Timeline events.
+- Evidence and discovery conditions.
+- Statements and alibis.
+- Motives and methods.
+- Verified solution.
+- Clue dependencies.
+- Difficulty.
+- Hints.
+- Scoring configuration.
+
+Support draft, preview, validation, publication, and unpublication workflows.
+
+### Case validation
+
+Before publication, validate that:
+
+- The solution is defined.
+- Required suspects and locations exist.
+- Every required clue has valid references.
+- Timeline events are logically consistent.
+- The culprit and solution are internally consistent.
+- Required clues are discoverable.
+- The mystery is solvable using available evidence.
+- There are no broken dependencies or impossible discovery requirements.
+- The case does not expose hidden solution data to players.
+
+Use AI to assist with story drafting if desired, but require explicit creator review and deterministic validation before publication.
+
+Do not allow ordinary users to edit other users' cases.
+
+## 20. AI-Assisted Mystery Generation
+
+Provide an optional advanced feature that helps authorized creators draft new mysteries.
+
+Allow configuration of:
+
+- Genre.
+- Setting.
+- Number of suspects.
+- Difficulty.
+- Crime type.
+- Tone.
+- Number of clues.
+- Estimated play time.
+- Narrative complexity.
+
+Generate structured case drafts containing characters, statements, events, clues, motives, and a proposed solution.
+
+The generated case must pass the same validation engine as manually created cases.
+
+Do not publish AI-generated cases automatically.
+
+Check references, timeline consistency, clue availability, solution uniqueness where required, and whether the evidence supports the proposed solution.
+
+If validation fails, show the creator actionable errors and allow revisions.
+
+## 21. Search, Notifications, and User Experience
+
+Implement:
+
+- Search and filters throughout the case library.
+- Confirmation dialogs for destructive actions.
+- Success and error notifications.
+- Loading skeletons.
+- Empty states.
+- Retry buttons for recoverable failures.
+- Autosave for notes and investigation progress.
+- Resume investigation functionality.
+- Clear progress indicators.
+- Keyboard-accessible interactions.
+- Graceful handling of unavailable AI services.
+- Friendly explanations for locked clues.
+- A consistent back-navigation experience.
+
+Never display fake progress, fake scores, or misleading success messages.
+
+## 22. Database Schema
+
+Design a normalized relational database with appropriate foreign keys, indexes, constraints, and timestamps.
+
+Include tables such as:
+
+- users
+- user_profiles
+- cases
+- case_versions
+- locations
+- suspects
+- victims
+- case_facts
+- timeline_events
+- clues
+- clue_dependencies
+- suspect_knowledge
+- statements
+- game_sessions
+- discovered_clues
+- personal_notes
+- dialogue_history
+- evidence_links
+- player_timeline_events
+- hypotheses
+- accusations
+- accusation_evidence
+- case_results
+- achievements
+- user_achievements
+- hint_usage
+- case_ratings, if ratings are implemented
+- audit_logs for appropriate security and administrative events
+
+Add fields, relationships, uniqueness constraints, and indexes based on actual requirements.
+
+Use migrations to manage schema changes.
+
+Ensure that player-specific records are scoped to the correct user and investigation session.
+
+Do not store AI API keys or other secrets in database records accessible to ordinary users.
+
+## 23. Backend Architecture and API
+
+Organize Flask into separate modules or blueprints for:
+
+- Authentication.
+- User profiles.
+- Cases.
+- Locations.
+- Investigation sessions.
+- Evidence.
+- Suspect interviews.
+- Timeline.
+- Evidence board.
+- Hypotheses.
+- Hints.
+- Accusations.
+- Results and scoring.
+- Achievements.
+- Case creation.
+- Administration, if implemented.
+
+Create documented REST endpoints with consistent JSON responses and appropriate HTTP status codes.
+
+Implement:
+
+- Authentication and authorization.
+- Input validation.
+- Pagination for large collections.
+- Rate limiting for sensitive endpoints.
+- Database transactions where needed.
+- Structured error handling.
+- Request logging without exposing secrets.
+- API documentation.
+- Environment-specific configuration.
+
+Never trust user-supplied IDs, scores, discovery status, permissions, or final answers without backend validation.
+
+Use CSRF protection where appropriate for session-authenticated state-changing requests.
+
+## 24. Security and Privacy
+
+Implement the following:
+
+- Secure password hashing.
+- Session cookie security.
+- CSRF protection.
+- SQL injection prevention through parameterized ORM operations.
+- Output escaping and XSS protection.
+- Input validation.
+- Authorization checks for every protected resource.
+- Rate limits on login and AI interview endpoints.
+- Secure secret management through environment variables.
+- Restricted access to hidden solutions.
+- Protection against insecure direct object references.
+- Safe error responses.
+- Appropriate logging and audit records.
+- Privacy-conscious retention of conversation data.
+- No unnecessary collection of personal information.
+
+Ensure users cannot access another user's notes, sessions, evidence board, private cases, or results by changing a request identifier.
+
+Do not expose stack traces, credentials, hidden prompts, or secret solution objects to the frontend.
+
+## 25. AI Integration and Cost Control
+
+Create a dedicated AI service module.
+
+Requirements:
+
+- Provider configuration through environment variables.
+- Model selection through configuration.
+- Reusable API client.
+- Request timeouts.
+- Bounded conversation context.
+- Rate limits and usage limits.
+- Safe fallback behavior.
+- Graceful handling of invalid API keys and provider outages.
+- Token or usage tracking where supported.
+- Appropriate redaction of sensitive data.
+- Tests using mocked AI responses.
+- No requirement for an AI key just to start the application or play a deterministic demo case.
+
+When the AI provider is not configured, provide an optional scripted interview mode so that the application remains playable.
+
+Do not claim that an AI feature is operational if it has not been configured or tested.
+
+## 26. Sample Case Requirements
+
+Create an original fictional case named **The Midnight Diamond**.
+
+Premise: A valuable diamond disappears from a mansion during a private gathering. Four suspects provide different accounts of their activities.
+
+Include:
+
+- Four fully defined suspects.
+- Multiple investigation locations.
+- Eight or more meaningful clues.
+- A verified incident timeline.
+- Suspect-specific knowledge.
+- At least two meaningful contradictions.
+- Clue dependencies.
+- A documented motive and method.
+- A unique, internally consistent official solution.
+- At least three hints.
+- A working accusation flow.
+- A complete scoring model.
+- A final case report.
+
+The example must be fully playable and logically solvable. Every clue, statement, and timestamp must agree with the predefined solution or be deliberately explained as a lie, mistake, or misleading lead.
+
+Keep the solution hidden during active play.
+
+Add automated tests that prove the intended solution is supported by the evidence and that the scoring engine evaluates both correct and incorrect submissions as expected.
+
+## 27. Testing Requirements
+
+Write meaningful automated tests for:
+
+- Registration and login.
+- Password hashing.
+- Authorization.
+- Case access.
+- Clue discovery.
+- Clue prerequisites.
+- Investigation persistence.
+- Suspect interview permissions.
+- Timeline validation.
+- Contradiction detection.
+- Evidence-board persistence.
+- Hint limits.
+- Accusation validation.
+- Partial-credit scoring.
+- Achievement awarding.
+- Hidden-solution protection.
+- User-to-user data isolation.
+- Invalid inputs.
+- AI service failure handling.
+- Case publication validation.
+
+Include at least one end-to-end scenario in which a player starts a case, discovers clues, interviews suspects, creates a hypothesis, submits an accusation, and receives a final report.
+
+Use mocked AI responses for deterministic automated tests.
+
+## 28. Project Structure and Deliverables
+
+Provide a clean project structure similar to:
+
+mysteryos/
+- app/
+  - __init__.py
+  - config.py
+  - extensions.py
+  - models/
+  - routes/
+  - services/
+  - investigation/
+  - ai/
+  - templates/
+  - static/
+    - css/
+    - js/
+    - images/
+- migrations/
+- tests/
+- scripts/
+- instance/
+- .env.example
+- .gitignore
+- requirements.txt
+- run.py
+- README.md
+- API_DOCUMENTATION.md
+- DATABASE_SCHEMA.md
+- SECURITY.md
+- Dockerfile
+- docker-compose.yml
+
+Adjust the structure if necessary, but preserve modularity and clear separation of concerns.
+
+Provide the following deliverables:
+
+1. Complete frontend source code.
+2. Complete Flask backend source code.
+3. Database models and migration instructions.
+4. AI integration service.
+5. Working investigation and scoring engines.
+6. Seed script for the fictional sample cases.
+7. Automated test suite.
+8. `.env.example` with placeholder values only.
+9. Dependency file.
+10. README with installation and execution instructions.
+11. Database schema documentation.
+12. API endpoint documentation.
+13. Security notes.
+14. Deployment instructions.
+15. Sample test credentials only if created locally by a seed script.
+16. Troubleshooting guide.
+17. Feature checklist showing implemented, optional, and not-yet-implemented features.
+
+Do not include actual credentials, API keys, or personal information.
+
+## 29. Local Setup Requirements
+
+Provide exact commands for:
+
+- Creating a Python virtual environment.
+- Activating it on macOS/Linux and Windows.
+- Installing dependencies.
+- Configuring environment variables.
+- Creating or connecting to PostgreSQL.
+- Running database migrations.
+- Loading sample data.
+- Starting the Flask application.
+- Running automated tests.
+- Opening the application in a browser.
+
+Ensure that setup instructions match the actual files and commands generated.
+
+Provide clear guidance for running the project in VS Code and PyCharm.
+
+## 30. Development Rules
+
+Follow these rules throughout implementation:
+
+- Build real, functional features rather than visual placeholders.
+- Do not leave core buttons nonfunctional.
+- Do not use hardcoded dashboard statistics.
+- Do not expose the hidden case solution.
+- Do not make the AI the sole source of truth.
+- Do not invent successful test results.
+- Do not claim deployment has succeeded unless it has been verified.
+- Do not omit required imports or dependencies.
+- Avoid duplicated business logic.
+- Use readable, maintainable code with appropriate comments.
+- Use database migrations rather than relying on ad hoc schema changes.
+- Make all important errors understandable.
+- Keep frontend and backend responsibilities separate.
+- Ensure the first case works even without an AI API key.
+- Include realistic seed data and test scenarios.
+- Verify each feature before marking it complete.
+
+## 31. Implementation Workflow
+
+Build the application in this order:
+
+Phase 1: Project foundation, database, authentication, landing page, and dashboard.
+
+Phase 2: Case library, locations, investigation sessions, clue discovery, and notebook.
+
+Phase 3: Suspect interviews, scripted mode, and AI integration.
+
+Phase 4: Evidence board, timeline reconstruction, and contradiction detection.
+
+Phase 5: Hypothesis builder, hints, accusations, scoring, and final reports.
+
+Phase 6: Achievements, additional playable cases, and Mystery Creator Studio.
+
+Phase 7: AI-assisted case drafting, case validation, and advanced features.
+
+Phase 8: Automated testing, security review, documentation, and deployment.
+
+At the end of each phase, verify the application and fix errors before moving to the next phase.
+
+## 32. Final Acceptance Criteria
+
+The finished project is acceptable only when:
+
+- A user can register, log in, and access a personalized dashboard.
+- The case library displays real case records.
+- The first mystery is playable from start to finish.
+- Players can investigate locations and discover clues.
+- Evidence and notes persist in the database.
+- Players can interview suspects using scripted mode or configured AI.
+- AI responses respect the authorized case facts.
+- Players can connect evidence and reconstruct a timeline.
+- Contradiction alerts are grounded in actual case rules.
+- Players can construct and submit a hypothesis.
+- Accusations are scored on the backend.
+- The final report explains the verified solution.
+- Progress and achievements persist correctly.
+- Hidden solutions are not exposed to active players.
+- Core security and data-isolation tests pass.
+- Setup instructions work with the generated project.
+- No core functionality is represented solely by a nonfunctional placeholder.
+
+## Final Instruction
+
+Begin by presenting a concise architecture overview and the final project directory structure. Then implement the application phase by phase, providing complete code for every required file.
+
+Do not stop after creating the landing page or basic authentication.
+
+If the full implementation is too large for one response, divide it into clearly numbered parts and maintain a consistent file structure, database schema, API contract, and implementation state across parts. Explicitly identify which files have been completed and which remain.
+
+Prioritize a working end-to-end MysteryOS application with a polished interface, reliable investigation mechanics, secure architecture, and a fully solvable sample mystery over unnecessary complexity.
+
+The final result should be suitable for a serious CSE portfolio demonstration and an advanced academic software project.

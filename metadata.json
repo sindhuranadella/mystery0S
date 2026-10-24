@@ -1,0 +1,6 @@
+{
+  "name": "MysteryOS — The Intelligent Mystery Investigation Platform",
+  "description": "Interactive detective investigation platform where players explore crime scenes, interrogate AI suspects, connect clues on an evidence board, reconstruct timelines, and solve complex mysteries.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

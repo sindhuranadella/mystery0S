@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    background-color: #06070a;
+    color: #e2e8f0;
+    font-family: 'Crimson Pro', Georgia, serif;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, .font-cinzel {
+    font-family: 'Cinzel', serif;
+    letter-spacing: 0.04em;
+  }
+
+  code, pre, .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+/* Custom horror scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #090a0f;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2b0b14;
+  border-radius: 3px;
+  border: 1px solid #4c0519;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #881337;
+}
+
+/* Horror vignette edge glow */
+.horror-vignette {
+  box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.95), inset 0 0 40px rgba(136, 19, 55, 0.2);
+}
+
+/* Subtle breathing horror pulse animation */
+@keyframes horror-pulse {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(1.05);
+  }
+}
+
+.animate-horror-pulse {
+  animation: horror-pulse 7s ease-in-out infinite;
+}
+
+/* Blood red glow */
+.glow-crimson {
+  text-shadow: 0 0 15px rgba(225, 29, 72, 0.6), 0 0 30px rgba(159, 18, 57, 0.4);
+}
